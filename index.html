@@ -263,6 +263,19 @@ loader.load('test4.glb', // called when the resource is loaded
 		gltf.asset; // Object
 
 	},
+	// called while loading is progressing
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+		document.getElementById('loaderText').textContent=( xhr.loaded / xhr.total * 100 ) + '% loaded' ;
+
+	},
+	// called when loading has errors
+	function ( error ) {
+
+		console.log( 'An error happened' );
+
+	});
 loader.load('test3.glb', // called when the resource is loaded
 	function ( gltf ) {
 
